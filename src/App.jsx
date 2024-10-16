@@ -77,8 +77,8 @@ const App = () => {
       {/* Dropdown to change model */}
       <label htmlFor="model-select">Choose Model: </label>
         <select id="model-select" value={modelName} onChange={handleModelChange}>
-          <option value="cyolov9t">YOLOv11</option>
-          <option value="cyolov8n">YOLOv8</option>
+          <option value="cyolov9t">YOLOv8</option>
+          <option value="cyolov8n">YOLOv11</option>
         </select>
 
       <div className="content">
