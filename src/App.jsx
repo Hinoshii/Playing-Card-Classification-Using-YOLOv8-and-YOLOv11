@@ -12,7 +12,7 @@ const App = () => {
     net: null,
     inputShape: [1, 0, 0, 3],
   }); // init model & input shape
-  const [modelName, setModelName] = useState("cyolov8n");
+  const [modelName, setModelName] = useState("YOLOv8");
   const [refreshKey, setRefreshKey] = useState(0);
 
   // references
@@ -77,8 +77,8 @@ const App = () => {
       {/* Dropdown to change model */}
       <label htmlFor="model-select">Choose Model: </label>
         <select id="model-select" value={modelName} onChange={handleModelChange}>
-          <option value="cyolov9t">YOLOv9 Tiny</option>
-          <option value="cyolov8n">YOLOv8 Nano</option>
+          <option value="cyolov9t">YOLOv11</option>
+          <option value="cyolov8n">YOLOv8</option>
         </select>
 
       <div className="content">
