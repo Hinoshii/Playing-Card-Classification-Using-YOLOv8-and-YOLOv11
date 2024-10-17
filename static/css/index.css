@@ -5,11 +5,22 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     font-family: "Roboto", sans-serif;
     color: white;
 }
+
+@keyframes AnimationName {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+
+body {
+    background: linear-gradient(244deg, #FEAC5E, #C779D0, #4BC0C8);
+    background-size: 600% 600%;
+    animation: AnimationName 40s ease infinite;
+}
+
 
 #bg {
     position: absolute;
@@ -38,4 +49,13 @@ label + * {
     margin-bottom: 10px;
 }
 
+input[type^="submit"] {
+    border-radius: 15px;
+    border: 1px solid black;
+    height: 30px;
+}
 
+select {
+    padding: 3px;
+    border-radius: 20px;
+}
