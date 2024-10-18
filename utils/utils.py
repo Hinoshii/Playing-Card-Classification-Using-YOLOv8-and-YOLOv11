@@ -46,9 +46,9 @@ def imshow_grid(image_batches, col=10, save_path=None):
     else:
         plt.show()
 
-def predict_from_path(image_path, model):
+def predict_from_path(image_path, model, conf):
     model = YOLO(model)
-    results = model.predict(image_path)
+    results = model.predict(image_path, conf=conf)
     predictions = results[0].boxes
     class_names = results[0].names
 
@@ -65,8 +65,8 @@ def predict_from_path(image_path, model):
         image.setflags(write=1)
         x1, y1, x2, y2 = [int(coord) for coord in bbox]
         cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2) 
-        cv2.putText(image, str(confidence), (x1, y1 - 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 3, cv2.LINE_AA)
-        cv2.putText(image, class_name, (x1, y1 - 20), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 3, cv2.LINE_AA)
+        cv2.putText(image, str(confidence), (x1, y1 - 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(image, class_name, (x1, y1 - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
         image = np.asarray(image)
     
     return image

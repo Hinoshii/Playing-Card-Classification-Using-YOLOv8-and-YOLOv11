@@ -15,13 +15,14 @@ def result():
     if request.method == 'POST':
         image = request.files['image']
         model = request.form['model']
+        conf = float(request.form['conf'])
 
         characters = string.ascii_letters
         file_name = ''.join(secrets.choice(characters) for _ in range(64))
         file_path = "static/images/upload/" + file_name + ".jpg"
         image.save(file_path)
         
-        predicted_image = utils.predict_from_path(file_path, model)
+        predicted_image = utils.predict_from_path(file_path, model, conf)
 
         result_path = file_path.replace("upload", "result")
         plt.imsave(result_path, predicted_image)
